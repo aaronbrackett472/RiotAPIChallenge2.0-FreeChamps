@@ -1,12 +1,12 @@
 (function(window, document, undefined) {
-  var ChampionModel = {};
+  var ChampionModel = {}; //this line has a semi-colon -tcj
 
-  var api_key = ''
-  var FREE_CHAMPS_URL= 'https://na.api.pvp.net/api/lol/na/v1.2/champion?freeToPlay=true&api_key=' + api_key
-  var CHALLENGER_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league/challenger?type=RANKED_SOLO_5x5&api_key' + api_key
+  var api_key = '' //should these lines have semi-colons? -tcj
+  var FREE_CHAMPS_URL= 'https://na.api.pvp.net/api/lol/na/v1.2/champion?freeToPlay=true&api_key=' + api_key //should these lines have semi-colons? -tcj
+  var CHALLENGER_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league/challenger?type=RANKED_SOLO_5x5&api_key' + api_key //should these lines have semi-colons? -tcj
   var MH_URL_1 = 'https://na.api.pvp.net/api/lol/na/v2.2/matchhistory/'
-  var MH_URL_2 = '?championIds='
-  var MH_URL_3 = '&api_key=' + api_key
+  var MH_URL_2 = '?championIds=' //should these lines have semi-colons? -tcj
+  var MH_URL_3 = '&api_key=' + api_key //should these lines have semi-colons? -tcj
   var STATUS_OK = 200;
 
 
