@@ -1,12 +1,18 @@
 var arbitraryLimit = 10
+var AllChampsAllItems = {
+	champs = []
+}
 
-var items = ChampionModel.freeChamps(function(error, champList){
+ChampionModel.freeChamps(function(error, champList){
 	if (error){
 		console.log("An error has occurred")
 		return
 	}
 	for (champ in champList.champions){
-		champ.possibleItems = []
+		var champion = {
+			champ = champ
+			itemSets = []
+		}
 		var challengers = ChampionModel.challengers(function(error, playerList){
 			if (error){
 				console.log("An error has occurred")
