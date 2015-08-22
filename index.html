@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--last updated: 8/21/15-->
+<!--dev notes:
+	-need a new <title>. what's the name of the website?
+	-need a favicon. have parker do it
+-->
+<html>
+	<head>
+		<title>RiotAPIChallenge2.0-FreeChamps</title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="icon" type="image/png" href="images/favicon.png">
+		<script src="../items.js"></script><!--may want to move script links to end of page to imporove load speed. shouldn't be an issue though-->
+	</head>
+	<body>
+		<header>
+			<div id="header_text">RiotAPIChallenge2.0-FreeChamps</div>
+		</header>
+		<main>
+			{{some script repeating this article for every object}}
+				<article>
+					<h1><img class="champion_icon" src="XXURL{{champname}}">{{champname}}</h1>
+					<div class="itemset_container"><!--these images need to be in a horizontal line-->
+						<img class="item_icon" src="XXURL{{item1name}}">
+						<img class="item_icon" src="XXURL{{item2name}}">
+						<img class="item_icon" src="XXURL{{item3name}}">
+						<img class="item_icon" src="XXURL{{item4name}}">
+						<img class="item_icon" src="XXURL{{item5name}}">
+						<img class="item_icon" src="XXURL{{item6name}}">
+						<p class="download_button"><a href="itemsets/{{champname}}/{itemset}">Download</a></p>
+					</div>
+				</article>
+			{{end script}}
+		</main>
+	</body>
+</html>
