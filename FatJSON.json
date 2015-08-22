@@ -1,0 +1,22 @@
+[
+	{
+		"champion": "Taylor Jensen",
+		"champion_description": "How the hell does this work?!",
+		"image": "/images/test.jpg"
+	},
+	{
+		"champion": "Aaron Brackett",
+		"champion_description": "FatJSON COMING RIGHT UP",
+		"image": "/images/test.jpg"
+	},
+	{
+		"champion": "Fofo",
+		"champion_description": "Fofosfederation Plays League Every Day",
+		"image": "/images/test.jpg"
+	},
+	{
+		"champion": "Taylor Jensen",
+		"champion_description": "Your FatJSON is broken!!!!!!!!1!",
+		"image": "/images/rage.jpg"
+	}
+]

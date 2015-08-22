@@ -1,11 +1,9 @@
-/*last updated 8/18/15*/
+/*last updated 8/22/15*/
 /*dev notes:
 	-images/background_.1png needs to be changed
 	-images/background_.2png needs to be changed
 	-make the background the image of the currently selected champion
 */
-
-
 header {
 	position: fixed; /*fixing the header keeps it in place when the page is scrolled*/
 	top: 0px;
@@ -17,15 +15,39 @@ header {
 	text-align: center; /*aligns children text objects*/
 	z-index: 20; /*elevates the header above the rest of the body*/
 }
-
 #header_text {
 	font-family: calibr;
 	font-size: 48px;
 	color: black;
 }
-
 body {
 	background-image: url(images/background_2.png);
 	background-attachment: fixed;
 	background-size: 400px;
+}
+article {
+	background-color: #5B8FAD;
+	width: 70%;
+	margin-left: 15%;
+	padding: 15px;
+}
+	article:first-child /*changes the padding on just the first article*/ {
+		margin-top: 100px;
+	}
+	article:last-child {
+		margin-bottom: 50px; /*makes it so the bottom of the last article doesn't touch the bottom of the browser window*/
+	}
+.champion_image {
+	width: 50px;
+	height: 50px;
+	padding: 5px;
+	float: left;
+}
+.entry {
+	background-color: rgba(0, 0, 0, .25);
+	height: 125px;
+	border-radius: .2em;
+}
+h1 {
+	padding: 5px;
 }

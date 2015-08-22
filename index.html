@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<!--last updated: 8/21/15-->
+<!--last updated: 8/22/15-->
 <!--dev notes:
 	-need a new <title>. what's the name of the website?
 	-need a favicon. have parker do it
 -->
 <html>
 	<head>
+		<meta charset="UTF-8"><!--defines the charset. while trying to debug javascript the console kept yelling at me about it; and i guess it's a good thing to do-->
 		<title>RiotAPIChallenge2.0-FreeChamps</title>
 		<link rel="stylesheet" type="text/css" href="styles.css">
 		<link rel="icon" type="image/png" href="images/favicon.png">
-		<script src="../items.js"></script><!--may want to move script links to end of page to imporove load speed. shouldn't be an issue though-->
+		<script src="/libs/jquery-2.1.4.min.js"></script><!--imports the jquery.js script-->
+		<script src="/libs/handlebars-v3.0.3.js"></script><!--imports the handlebars.js script-->
 	</head>
 	<body>
 		<header>
 			<div id="header_text">RiotAPIChallenge2.0-FreeChamps</div>
 		</header>
 		<main>
-			{{some script repeating this article for every object}}
-				<article>
-					<h1><img class="champion_icon" src="XXURL{{champname}}">{{champname}}</h1>
-					<div class="itemset_container"><!--these images need to be in a horizontal line-->
-						<img class="item_icon" src="XXURL{{item1name}}">
-						<img class="item_icon" src="XXURL{{item2name}}">
-						<img class="item_icon" src="XXURL{{item3name}}">
-						<img class="item_icon" src="XXURL{{item4name}}">
-						<img class="item_icon" src="XXURL{{item5name}}">
-						<img class="item_icon" src="XXURL{{item6name}}">
-						<p class="download_button"><a href="itemsets/{{champname}}/{itemset}">Download</a></p>
-					</div>
-				</article>
-			{{end script}}
+			<article class="test">
+				<script id="template" type="text/x-handlebars-template">
+					{{#each this}} <!--/*begins loop. for each item in the array defined in "template.js" it will do a loop. "this" being the array. if there was more data we could/should be more specific*/-->
+						<div class="entry">
+							<h1>{{champion}}</h1>
+							<p><img class="champion_image" src="{{image}}">{{champion_description}}</p>
+						</div>
+					{{/each}}<!--/*ends loop*/-->
+				</script>
+			</article>
 		</main>
 	</body>
+	<script src="template.js"></script>
 </html>
