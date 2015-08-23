@@ -1,6 +1,6 @@
 function makeFatJSON(){
 	var obj = {
-		champs = [
+		champs : [
 			{
 				champ: {
 	   				"id": 34,
