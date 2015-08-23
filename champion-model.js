@@ -7,6 +7,8 @@
   var MH_URL_1 = 'https://na.api.pvp.net/api/lol/na/v2.2/matchhistory/'
   var MH_URL_2 = '?championIds=' //should these lines have semi-colons? -tcj
   var MH_URL_3 = '&api_key=' + api_key //should these lines have semi-colons? -tcj
+  var ITEM_URL_1 = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/item/'
+  var ITEM_URL_2 = '?itemData=image&api_key=' + api_key
   var STATUS_OK = 200;
 
 
@@ -58,7 +60,21 @@
     getRequest.send();
   };
 
- 
+  ChampionModel.getItem = function(callback, itemID){
+    var getRequest = new XMLHttpsRequest();
+    getRequest.addEventListener('load', function(event){
+      if (getRequest.status != STATUS_OK){
+        callback(getRequest.responseText);
+      }
+      else{
+        var JSONPosts = getRequest.responseText;
+        var parsedPosts = JSON.parse(JSONPosts);
+        return callback(null, parsedPosts);
+      }
+    });
+    getRequest.open('GET', ITEM_URL_1 + itemID + ITEM_URL_2);
+    getRequest.send();
+  }
 
   window.PostModel = PostModel;
 })(this, this.document);

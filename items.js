@@ -1,51 +1,66 @@
-var arbitraryLimit = 10
-var AllChampsAllItems = {
-	champs = []
-}
-
-ChampionModel.freeChamps(function(error, champList){
-	if (error){
-		console.log("An error has occurred")
-		return
+function getFatJSON(){	
+	var arbitraryLimit = 10
+	var AllChampsAllItems = {
+		champs = []
 	}
-	for (champ in champList.champions){
-		var champion = {
-			champ = champ
-			itemSets = []
+
+	AllChampsAllItems.champs = ChampionModel.freeChamps(function(error, champList){
+		if (error){
+			console.log("An error has occurred")
+			return
 		}
-		var challengers = ChampionModel.challengers(function(error, playerList){
-			if (error){
-				console.log("An error has occurred")
-				return
+		var champset = []
+		for (champ in champList.champions){
+			var champion = {
+				champ = champ
+				itemSets = []
 			}
-			for (player in playerList.entries.playerOrTeamId){
-				var sets = ChampionModel.matchHistory(function(error, matchList){
-					var matches = matchList.matches
-					for (match in matches){
-						if (match.queueType == "RANKED_SOLO_5x5"){
-							var participants  = match.participants
-							for (participant in participants){
-								if (participant.championId == champ.champId){
-									var items = {
-										item0 = participant.stats.item0,
-										item1 = participant.stats.item1,
-										item2 = participant.stats.item2,
-										item3 = participant.stats.item3,
-										item4 = participant.stats.item4,
-										item5 = participant.stats.item5,
-										item6 = participant.stats.item6
+			ChampionModel.challengers(function(error, playerList){
+				if (error){
+					console.log("An error has occurred")
+					return
+				}
+				for (player in playerList.entries.playerOrTeamId){
+					var sets = ChampionModel.matchHistory(function(error, matchList){
+						var matches = matchList.matches
+						for (match in matches){
+							if (match.queueType == "RANKED_SOLO_5x5"){
+								var participants  = match.participants
+								for (participant in participants){
+									if (participant.championId == champ.champId){
+										itemSet = []
+										var participantItems = [
+											participant.stats.item0,
+											participant.stats.item1,
+											participant.stats.item2,
+											participant.stats.item3,
+											participant.stats.item4,
+											participant.stats.item5,
+											participant.stats.item6
+										]
+										for (itemId in participantItems){
+											var newItem = ChampionModel.getItem(function(error, item){
+												if (error){
+													console.log("An error has occurred")
+													return
+												}
+												return item
+											}, itemId)
+											itemSet += newItem
+										}
+										break
 									}
-									champ.possibleItems += items
-									break
 								}
 							}
 						}
-					}
-					if (champ.possibleItems.length > arbitraryLimit) {
+					}, player, champ.id)
+					if (champion.itemSets.length > arbitraryLimit) {
 						break
 					};
-				}, player, champ.id)
-			}
-		});
-	}
-});
+				}
+			});
+			champSet += champion
+		}
+		return champset
+	});
+}
