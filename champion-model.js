@@ -76,5 +76,5 @@
     getRequest.send();
   }
 
-  window.PostModel = PostModel;
+  window.ChampionModel = ChampionModel;
 })(this, this.document);
