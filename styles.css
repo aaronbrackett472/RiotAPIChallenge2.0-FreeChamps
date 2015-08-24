@@ -1,4 +1,4 @@
-/*last updated 8/22/15*/
+/*last updated 8/24/15*/
 /*dev notes:
 	-images/background_.1png needs to be changed
 	-images/background_.2png needs to be changed
@@ -27,8 +27,8 @@ body {
 }
 article {
 	background-color: #5B8FAD;
-	width: 70%;
-	margin-left: 15%;
+	width: 50%;
+	margin-left: 25%;
 	padding: 15px;
 }
 	article:first-child /*changes the padding on just the first article*/ {
@@ -38,16 +38,33 @@ article {
 		margin-bottom: 50px; /*makes it so the bottom of the last article doesn't touch the bottom of the browser window*/
 	}
 .champion_image {
+	width: 75px;
+	height: 75px;
+	margin: 5px;
+	margin-left: 20px;
+	float: left;
+	border-radius: 5em;
+	border: 2px solid black;
+}
+.item_image {
 	width: 50px;
 	height: 50px;
-	padding: 5px;
+	margin: 5px;
+	margin-left: 20px;
+	margin-top: 12px;
 	float: left;
+	border-radius: .2em;
+	border: 2px solid black;
 }
 .entry {
 	background-color: rgba(0, 0, 0, .25);
-	height: 125px;
+	height: 150px;
 	border-radius: .2em;
 }
+.item_set {
+}
 h1 {
+	font-family: calibri, sans-serif;
+	font-size: 22px;
 	padding: 5px;
 }

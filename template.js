@@ -23,28 +23,8 @@
 			//jsonresponse = JSON.parse(response);
 			var parsed = JSON.parse(response);
 			var template = Handlebars.compile( $('#template').html() );
-			$('article.test').append (template(parsed));
+			$('article').append (template(parsed));
 			// Assuming json data is wrapped in square brackets as Drew suggests
 			//console.log(jsonresponse[0].name);
 	});
-
-
-
-
-
-
-/*pulling from an array like below works just fine. i need to put FatJSON.json into an array*/
-/*	var data = [
-		{
-			author: "Taylor Jensen",
-			tweet: "How the hell does this work?!"
-		},
-		{
-			author: "Aaron Brackett",
-			tweet: "FatJSON COMING RIGHT UP"
-		}
-	];*/
-	/*the next lines compile the "template"*/
-	/*var template = Handlebars.compile( $('#template').html() );
-	$('article.test').append (template(data));*/
 })();

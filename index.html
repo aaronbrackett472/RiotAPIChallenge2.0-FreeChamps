@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--last updated: 8/22/15-->
+<!--last updated: 8/24/15-->
 <!--dev notes:
 	-need a new <title>. what's the name of the website?
 	-need a favicon. have parker do it
@@ -12,23 +12,52 @@
 		<link rel="icon" type="image/png" href="images/favicon.png">
 		<script src="/libs/jquery-2.1.4.min.js"></script><!--imports the jquery.js script-->
 		<script src="/libs/handlebars-v3.0.3.js"></script><!--imports the handlebars.js script-->
+		
+
+		<script src="/libs/jquery.hoverIntent.minified.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/libs/jquery.bt.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="demo.js" type="text/javascript" charset="utf-8"></script>
+		<link href="demo.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<header>
 			<div id="header_text">RiotAPIChallenge2.0-FreeChamps</div>
 		</header>
 		<main>
-			<article class="test">
+			<article>
+				
 				<script id="template" type="text/x-handlebars-template">
-					{{#each this}} <!--/*begins loop. for each item in the array defined in "template.js" it will do a loop. "this" being the array. if there was more data we could/should be more specific*/-->
+						{{#each this}} <!--/*begins loop. for each item in the array defined in "template.js" it will do a loop. "this" being the array. if there was more data we could/should be more specific*/-->
 						<div class="entry">
-							<h1>{{champion}}</h1>
-							<p><img class="champion_image" src="{{image}}">{{champion_description}}</p>
+							<h1>{{champion_name}}</h1>
+							<span class="{{name}}">{{champion_description}}</span>
+							<img class="champion_image" src="{{champion_image}}">
+							<span class="item_set">
+								{{#if item1}}
+									<img id="example1" class="item_image" src="{{item1_image}}" title="IMG TOOL TIP">
+								{{/if}}
+								{{#if item2}}
+									<img class="item_image" src="{{item2_image}}">
+								{{/if}}
+								{{#if item3}}
+									<img class="item_image" src="{{item3_image}}">
+								{{/if}}
+								{{#if item4}}
+									<img class="item_image" src="{{item4_image}}">
+								{{/if}}
+								{{#if item5}}
+									<img class="item_image" src="{{item5_image}}">
+								{{/if}}
+								{{#if item6}}
+									<img class="item_image" src="{{item6_image}}">
+								{{/if}}
+							</span>
 						</div>
 					{{/each}}<!--/*ends loop*/-->
 				</script>
 			</article>
 		</main>
 	</body>
-	<script src="template.js"></script>
+	<script src="template.js"></script><!--once the page has loaded it calls the handlebars template-->
 </html>

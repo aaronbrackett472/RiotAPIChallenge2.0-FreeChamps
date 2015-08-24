@@ -1,7 +1,7 @@
 function getFatJSON(){	
 	var arbitraryLimit = 10
 	var AllChampsAllItems = {
-		champs = []
+		champs : []
 	}
 
 	AllChampsAllItems.champs = ChampionModel.freeChamps(function(error, champList){
@@ -12,8 +12,8 @@ function getFatJSON(){
 		var champset = []
 		for (champ in champList.champions){
 			var champion = {
-				champ = champ
-				itemSets = []
+				champ : champ,
+				itemSets : []
 			}
 			ChampionModel.challengers(function(error, playerList){
 				if (error){
