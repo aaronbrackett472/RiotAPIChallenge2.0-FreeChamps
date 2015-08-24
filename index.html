@@ -6,19 +6,11 @@
 -->
 <html>
 	<head>
-		<meta charset="UTF-8"><!--defines the charset. while trying to debug javascript the console kept yelling at me about it; and i guess it's a good thing to do-->
+		<meta charset="UTF-8"><!--defines the charset. while trying to debug javascript the console kept yelling at me about it; i guess it's a good thing to do-->
 		<title>RiotAPIChallenge2.0-FreeChamps</title>
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link rel="icon" type="image/png" href="images/favicon.png">
-		<script src="/libs/jquery-2.1.4.min.js"></script><!--imports the jquery.js script-->
-		<script src="/libs/handlebars-v3.0.3.js"></script><!--imports the handlebars.js script-->
-		
-
-		<script src="/libs/jquery.hoverIntent.minified.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/libs/jquery.bt.min.js" type="text/javascript" charset="utf-8"></script>
-
-		<script src="demo.js" type="text/javascript" charset="utf-8"></script>
-		<link href="demo.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="/libs/bootstrap.min.css"><!--default bootstrap css-->
+		<link rel="stylesheet" type="text/css" href="styles.css"><!--css written for this webpage-->
+		<link rel="icon" type="image/png" href="images/favicon.png"><!--the page icon-->
 	</head>
 	<body>
 		<header>
@@ -26,31 +18,29 @@
 		</header>
 		<main>
 			<article>
-				
 				<script id="template" type="text/x-handlebars-template">
 						{{#each this}} <!--/*begins loop. for each item in the array defined in "template.js" it will do a loop. "this" being the array. if there was more data we could/should be more specific*/-->
 						<div class="entry">
-							<h1>{{champion_name}}</h1>
-							<span class="{{name}}">{{champion_description}}</span>
+							<h1 class="champion_name">{{champion_name}}  <!--/*this white space intentional*/--><span class="champion_desciption">{{champion_description}}</span></h1>
 							<img class="champion_image" src="{{champion_image}}">
 							<span class="item_set">
 								{{#if item1}}
-									<img id="example1" class="item_image" src="{{item1_image}}" title="IMG TOOL TIP">
+									<img class="item_image" src="{{item1_image}}" title="{{item1_description}}">
 								{{/if}}
 								{{#if item2}}
-									<img class="item_image" src="{{item2_image}}">
+									<img class="item_image" src="{{item2_image}}" title="{{item2_description}}">
 								{{/if}}
 								{{#if item3}}
-									<img class="item_image" src="{{item3_image}}">
+									<img class="item_image" src="{{item3_image}}" title="{{item3_description}}">
 								{{/if}}
 								{{#if item4}}
-									<img class="item_image" src="{{item4_image}}">
+									<img class="item_image" src="{{item4_image}}" title="{{item4_description}}">
 								{{/if}}
 								{{#if item5}}
-									<img class="item_image" src="{{item5_image}}">
+									<img class="item_image" src="{{item5_image}}" title="{{item5_description}}">
 								{{/if}}
 								{{#if item6}}
-									<img class="item_image" src="{{item6_image}}">
+									<img class="item_image" src="{{item6_image}}" title="{{item6_description}}">
 								{{/if}}
 							</span>
 						</div>
@@ -59,5 +49,11 @@
 			</article>
 		</main>
 	</body>
-	<script src="template.js"></script><!--once the page has loaded it calls the handlebars template-->
+	<!--scripts i need to import/run-->
+		<script src="/libs/handlebars-v3.0.3.js"></script><!--imports the handlebars.js script-->
+		<script src="template.js"></script><!--once the page has loaded it calls the handlebars template-->
+		<script src="/libs/jquery-2.1.4.min.js"></script><!--imports the jquery.js script-->
+		<script src="/libs/bootstrap.min.js"></script><!--imports the bootstrap.js script-->
+		<!--<script>$('.mytooltip').tooltip();</script>--><!--makes the tooltips work-->
+	<!--end scripts-->
 </html>
