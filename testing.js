@@ -210,8 +210,8 @@ ChampionModel.addFatJSON(newPost, function(){
 	console.log("lyeiuafudsjfas")
 })
 
-//(function(window, document, undefined) {
-  //this line has a semi-colon -tcj
+(function(window, document, undefined) {
+  var ChampionModel = {}; //this line has a semi-colon -tcj
 
   var api_key = 'b9f2effe-c90e-4633-b36b-5716684ccbac' //should these lines have semi-colons? -tcj
   var FREE_CHAMPS_URL= 'https://na.api.pvp.net/api/lol/na/v1.2/champion?freeToPlay=true&api_key=' + api_key //should these lines have semi-colons? -tcj
@@ -223,8 +223,8 @@ ChampionModel.addFatJSON(newPost, function(){
   var ITEM_URL_2 = '?itemData=image&api_key=' + api_key
   var STATUS_OK = 200;
 
-  var ChampionModel = {
-  freeChamps : function(callback) {
+
+  ChampionModel.freeChamps = function(callback) {
     var getRequest = new XMLHttpsRequest();
     getRequest.addEventListener('load', function(event){
       if (getRequest.status != STATUS_OK){
@@ -240,7 +240,7 @@ ChampionModel.addFatJSON(newPost, function(){
     getRequest.send();
   }
 
-  challengers : function(callback) {
+  ChampionModel.challengers = function(callback) {
     var getRequest = new XMLHttpsRequest();
     getRequest.addEventListener('load', function(event){
       if (getRequest.status != STATUS_OK){
@@ -256,7 +256,7 @@ ChampionModel.addFatJSON(newPost, function(){
     getRequest.send();
   };
 
-  matchHistory : function(callback, summonerID, champID) {
+  ChampionModel.matchHistory = function(callback, summonerID, champID) {
     var getRequest = new XMLHttpsRequest();
     getRequest.addEventListener('load', function(event){
       if (getRequest.status != STATUS_OK){
@@ -272,7 +272,7 @@ ChampionModel.addFatJSON(newPost, function(){
     getRequest.send();
   };
 
-  getItem : function(callback, itemID){
+  ChampionModel.getItem = function(callback, itemID){
     var getRequest = new XMLHttpsRequest();
     getRequest.addEventListener('load', function(event){
       if (getRequest.status != STATUS_OK){
@@ -288,7 +288,7 @@ ChampionModel.addFatJSON(newPost, function(){
     getRequest.send();
   }
 
-  getChamp : function(callback, itemID){
+  ChampionModel.getChamp = function(callback, itemID){
     var getRequest = new XMLHttpsRequest();
     getRequest.addEventListener('load', function(event){
       if (getRequest.status != STATUS_OK){
@@ -304,7 +304,7 @@ ChampionModel.addFatJSON(newPost, function(){
     getRequest.send();
   }
 
-  postFatJSON : function(post, callback) {
+  PostModel.postFatJSON = function(post, callback) {
     var postRequest = new XMLHttpRequest();
     postRequest.addEventListener('load', function(event){
       if (postRequest.status != STATUS_OK){
@@ -322,4 +322,5 @@ ChampionModel.addFatJSON(newPost, function(){
   };
 
 
-  //window.= ChampionModel;
+  window.ChampionModel = ChampionModel;
+})(this, this.document);
