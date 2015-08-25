@@ -17,8 +17,15 @@
 			<div id="header_text">RiotAPIChallenge2.0-FreeChamps</div>
 		</header>
 		<main>
+			<aside>
+				<script id="champions_template">
+					{{#each this}}
+						<div class="champion_name">{{champion_name}}</div>
+					{{/each}}
+				</script>
+			</aside>
 			<article>
-				<script id="template" type="text/x-handlebars-template">
+				<script id="items_template" type="text/x-handlebars-template">
 						{{#each this}} <!--/*begins loop. for each item in the array defined in "template.js" it will do a loop. "this" being the array. if there was more data we could/should be more specific*/-->
 						<div class="entry">
 							<h1 class="champion_name">{{champion_name}}  <!--/*this white space intentional*/--><span class="champion_desciption">{{champion_description}}</span></h1>
