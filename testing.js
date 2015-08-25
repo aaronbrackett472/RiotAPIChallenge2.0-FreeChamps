@@ -238,7 +238,7 @@ ChampionModel.addFatJSON(newPost, function(){
     });
     getRequest.open('GET', FREE_CHAMPS_URL);
     getRequest.send();
-  };
+  }
 
   challengers : function(callback) {
     var getRequest = new XMLHttpsRequest();

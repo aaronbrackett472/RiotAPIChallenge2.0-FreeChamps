@@ -24,36 +24,15 @@
 					{{/each}}
 				</script>
 			</aside>
-			<article>
-				<script id="items_template" type="text/x-handlebars-template">
-						{{#each this}} <!--/*begins loop. for each item in the array defined in "template.js" it will do a loop. "this" being the array. if there was more data we could/should be more specific*/-->
-						<div class="entry">
-							<h1 class="champion_name">{{champion_name}}  <!--/*this white space intentional*/--><span class="champion_desciption">{{champion_description}}</span></h1>
-							<img class="champion_image" src="{{champion_image}}">
-							<span class="item_set">
-								{{#if item1}}
-									<img class="item_image" src="{{item1_image}}" title="{{item1_description}}">
-								{{/if}}
-								{{#if item2}}
-									<img class="item_image" src="{{item2_image}}" title="{{item2_description}}">
-								{{/if}}
-								{{#if item3}}
-									<img class="item_image" src="{{item3_image}}" title="{{item3_description}}">
-								{{/if}}
-								{{#if item4}}
-									<img class="item_image" src="{{item4_image}}" title="{{item4_description}}">
-								{{/if}}
-								{{#if item5}}
-									<img class="item_image" src="{{item5_image}}" title="{{item5_description}}">
-								{{/if}}
-								{{#if item6}}
-									<img class="item_image" src="{{item6_image}}" title="{{item6_description}}">
-								{{/if}}
-							</span>
-						</div>
-					{{/each}}<!--/*ends loop*/-->
-				</script>
-			</article>
+			<script id="items_template">
+				{{#each this}}
+					{{#if item1}}
+						<article>
+							
+						</article>
+					{{/if}}
+				{{/each}}
+			</script>
 		</main>
 	</body>
 	<!--scripts i need to import/run-->
