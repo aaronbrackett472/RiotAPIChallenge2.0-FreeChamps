@@ -26,23 +26,17 @@ body {
 	background-size: 300px;
 	/* background-color: #3E6B71; */
 }
-aside {
-	position: fixed;
-	top: 150px; /*<header>'s "height"+ 2* <header>'s "padding"*/
-	left: 0px;
-	height: 100%;
-	width: 15%;
-	z-index: 10
-
-}
 article {
 	background-color: #5B8FAD;
 	width: 50%;
 	margin-left: 25%;
-	padding: 15px;
+	padding: 5px;
+	margin-top: 50px;
+	background-color: rgba(0, 0, 0, .25);
+	border-radius: .2em;
 }
 	article:first-child /*changes the padding on just the first article*/ {
-		margin-top: 100px;
+		margin-top: 250px;
 		background-color: red;
 	}
 	article:last-child {
@@ -53,7 +47,7 @@ article {
 	height: 75px;
 	margin: 5px;
 	margin-left: 20px;
-	float: left;
+	/*float: left;*/
 	border-radius: 5em;
 	border: 2px solid black;
 }
@@ -63,14 +57,9 @@ article {
 	margin: 5px;
 	margin-left: 20px;
 	margin-top: 12px;
-	float: left;
+	/*float: left;*/
 	border-radius: .2em;
 	border: 2px solid black;
-}
-.entry {
-	background-color: rgba(0, 0, 0, .25);
-	height: 150px;
-	border-radius: .2em;
 }
 .item_set {
 }

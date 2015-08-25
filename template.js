@@ -22,8 +22,8 @@
 			// Do Something with the response e.g.
 			//jsonresponse = JSON.parse(response);
 			var parsed = JSON.parse(response);
-			var item_template = Handlebars.compile( $('#item_template').html() );
-			$('article').append (item_template(parsed));
+			var template = Handlebars.compile( $('#item_template').html() );
+			$('div.item_template_container').append (template(parsed));
 			// Assuming json data is wrapped in square brackets as Drew suggests
 			//console.log(jsonresponse[0].name);
 	});

@@ -16,18 +16,11 @@
 		<header>
 			<div id="header_text">RiotAPIChallenge2.0-FreeChamps</div>
 		</header>
-		<aside>
-			<script id="champion_template" type="text/x-handlebars-template">
-				{{#each this}}
-				<a href=""><img class="champion_image" src="{{champion_image}} title="{{champion_name}}"></a>
-				{{/each}}
-			</script>
-		</aside>
 		<main>
-			<article>
+			<div class="item_template_container">
 				<script id="item_template" type="text/x-handlebars-template">
 						{{#each this}} <!--/*begins loop. for each item in the array defined in "template.js" it will do a loop. "this" being the array. if there was more data we could/should be more specific*/-->
-						<div class="entry">
+						<article>
 							<h1 class="champion_name">{{champion_name}}  <!--/*this white space intentional*/--><span class="champion_desciption">{{champion_description}}</span></h1>
 							<img class="champion_image" src="{{champion_image}}">
 							<span class="item_set">
@@ -50,10 +43,10 @@
 									<img class="item_image" src="{{item6_image}}" title="{{item6_description}}">
 								{{/if}}
 							</span>
-						</div>
+						</article>
 					{{/each}}<!--/*ends loop*/-->
 				</script>
-			</article>
+			</div>
 		</main>
 	</body>
 	<!--scripts i need to import/run-->
