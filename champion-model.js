@@ -76,5 +76,39 @@
     getRequest.send();
   }
 
+  ChampionModel.getChamp = function(callback, itemID){
+    var getRequest = new XMLHttpsRequest();
+    getRequest.addEventListener('load', function(event){
+      if (getRequest.status != STATUS_OK){
+        callback(getRequest.responseText);
+      }
+      else{
+        var JSONPosts = getRequest.responseText;
+        var parsedPosts = JSON.parse(JSONPosts);
+        return callback(null, parsedPosts);
+      }
+    });
+    getRequest.open('GET', ITEM_URL_1 + itemID + ITEM_URL_2);
+    getRequest.send();
+  }
+
+  PostModel.postFatJSON = function(post, callback) {
+    var postRequest = new XMLHttpRequest();
+    postRequest.addEventListener('load', function(event){
+      if (postRequest.status != STATUS_OK){
+        callback(postRequest.responseText);
+      }
+      else{
+        var JSONPost = postRequest.responseText;
+        var parsedPost = JSON.parse(JSONPost);
+        callback(null, parsedPost);
+      }
+    });
+    postRequest.open('POST', '/fatJSON');
+    postRequest.setRequestHeader('Content-type', 'application/json');
+    postRequest.send(JSON.stringify(post));   
+  };
+
+
   window.ChampionModel = ChampionModel;
 })(this, this.document);

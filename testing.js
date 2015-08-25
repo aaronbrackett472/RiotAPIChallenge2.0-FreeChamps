@@ -1,3 +1,5 @@
+var ChampionModel = require('../champion-model.js')
+
 function makeFatJSON(){
 	var obj = {
 		champs : [
@@ -204,3 +206,8 @@ function makeFatJSON(){
 	var fatJSON = JSON.stringify(obj)
 	return fatJSON
 }
+
+var newPost = makeFatJSON();
+ChampionModel.addFatJSON(newPost, function(){
+	console.log("lyeiuafudsjfas")
+})
