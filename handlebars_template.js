@@ -22,8 +22,13 @@
 			// Do Something with the response e.g.
 			//jsonresponse = JSON.parse(response);
 			var parsed = JSON.parse(response);
-			var template = Handlebars.compile( $('#item_template').html() );
-			$('div#item_template_container').append (template(parsed));
+			//handlebars for champions
+			var champions_template = Handlebars.compile( $('#champions_template').html() );
+			$('div#champions_template_container').append (champions_template(parsed));
+
+			//handlebars for items
+			var items_template = Handlebars.compile( $('#items_template').html() );
+			$('div#items_template_container').append (items_template(parsed));
 			// Assuming json data is wrapped in square brackets as Drew suggests
 			//console.log(jsonresponse[0].name);
 	});

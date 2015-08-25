@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8"><!--defines the charset. while trying to debug javascript the console kept yelling at me about it; i guess it's a good thing to do-->
-		<title>RiotAPIChallenge2.0-FreeChamps</title>
+		<title>Free Rotation Champion Builds</title>
 		<link rel="stylesheet" type="text/css" href="/libs/bootstrap.min.css"><!--default bootstrap css-->
 		<link rel="stylesheet" type="text/css" href="styles.css"><!--css written for this webpage-->
 		<link rel="icon" type="image/png" href="images/favicon.png"><!--the page icon-->
@@ -17,35 +17,40 @@
 	</head>
 	<body>
 		<header>
-			<div id="header_text">RiotAPIChallenge2.0-FreeChamps</div>
+			<div id="header_text">Free Rotation Champion Builds</div>
 		</header>
+		<aside>
+			<div id="champions_template_container">
+				<script id="champions_template" type="text/x-handlebars-template">
+					{{#each this}}
+						<a href="#"><img class="champion_image" src="{{champion_image}}" title="{{champion_name}}: {{champion_description}}"></a>
+					{{/each}}
+				</script>
+			</div>
+		</aside>
 		<main>
-			<div id="item_template_container">
-				<script id="item_template" type="text/x-handlebars-template">
+			<div id="items_template_container">
+				<script id="items_template" type="text/x-handlebars-template">
 						{{#each this}} <!--/*begins loop. for each item in the array defined in "template.js" it will do a loop. "this" being the array. if there was more data we could/should be more specific*/-->
-						<article>
-							<h1 class="champion_name">{{champion_name}}  <!--/*this white space intentional*/--><span class="champion_desciption">{{champion_description}}</span></h1>
-							<img class="champion_image" src="{{champion_image}}">
-							<span class="item_set">
-								{{#if item1}}
-									<img class="item_image" src="{{item1_image}}" title="{{item1_description}}">
-								{{/if}}
-								{{#if item2}}
-									<img class="item_image" src="{{item2_image}}" title="{{item2_description}}">
-								{{/if}}
-								{{#if item3}}
-									<img class="item_image" src="{{item3_image}}" title="{{item3_description}}">
-								{{/if}}
-								{{#if item4}}
-									<img class="item_image" src="{{item4_image}}" title="{{item4_description}}">
-								{{/if}}
-								{{#if item5}}
-									<img class="item_image" src="{{item5_image}}" title="{{item5_description}}">
-								{{/if}}
-								{{#if item6}}
-									<img class="item_image" src="{{item6_image}}" title="{{item6_description}}">
-								{{/if}}
-							</span>
+						<article>							
+							{{#if item1}}
+								<img class="item_image" src="{{item1_image}}" title="{{item1_description}}">
+							{{/if}}
+							{{#if item2}}
+								<img class="item_image" src="{{item2_image}}" title="{{item2_description}}">
+							{{/if}}
+							{{#if item3}}
+								<img class="item_image" src="{{item3_image}}" title="{{item3_description}}">
+							{{/if}}
+							{{#if item4}}
+								<img class="item_image" src="{{item4_image}}" title="{{item4_description}}">
+							{{/if}}
+							{{#if item5}}
+								<img class="item_image" src="{{item5_image}}" title="{{item5_description}}">
+							{{/if}}
+							{{#if item6}}
+								<img class="item_image" src="{{item6_image}}" title="{{item6_description}}">
+							{{/if}}
 						</article>
 					{{/each}}<!--/*ends loop*/-->
 				</script>
