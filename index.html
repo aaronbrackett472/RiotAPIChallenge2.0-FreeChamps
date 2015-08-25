@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--last updated: 8/24/15-->
+<!--last updated: 8/25/15-->
 <!--dev notes:
 	-need a new <title>. what's the name of the website?
 	-need a favicon. have parker do it
@@ -11,13 +11,16 @@
 		<link rel="stylesheet" type="text/css" href="/libs/bootstrap.min.css"><!--default bootstrap css-->
 		<link rel="stylesheet" type="text/css" href="styles.css"><!--css written for this webpage-->
 		<link rel="icon" type="image/png" href="images/favicon.png"><!--the page icon-->
+		<script src="/libs/jquery-2.1.4.min.js"></script><!--imports the jquery.js script-->
+		<script src="/libs/bootstrap.min.js"></script><!--imports the bootstrap.js script-->
+		<script src="/libs/handlebars-v3.0.3.js"></script><!--imports the handlebars.js script-->
 	</head>
 	<body>
 		<header>
 			<div id="header_text">RiotAPIChallenge2.0-FreeChamps</div>
 		</header>
 		<main>
-			<div class="item_template_container">
+			<div id="item_template_container">
 				<script id="item_template" type="text/x-handlebars-template">
 						{{#each this}} <!--/*begins loop. for each item in the array defined in "template.js" it will do a loop. "this" being the array. if there was more data we could/should be more specific*/-->
 						<article>
@@ -50,10 +53,7 @@
 		</main>
 	</body>
 	<!--scripts i need to import/run-->
-		<script src="/libs/handlebars-v3.0.3.js"></script><!--imports the handlebars.js script-->
-		<script src="template.js"></script><!--once the page has loaded it calls the handlebars template-->
-		<script src="/libs/jquery-2.1.4.min.js"></script><!--imports the jquery.js script-->
-		<script src="/libs/bootstrap.min.js"></script><!--imports the bootstrap.js script-->
+		<script src="handlebars_template.js"></script><!--once the page has loaded it calls the handlebars template-->
 		<!--<script>$('.mytooltip').tooltip();</script>--><!--makes the tooltips work-->
 	<!--end scripts-->
 </html>

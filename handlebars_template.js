@@ -1,4 +1,4 @@
-/*last modified 8/22/15*/
+/*last modified 8/25/15*/
 /*dev notes:
 	-this script needs to compile FatJSON into html
 */
@@ -23,7 +23,7 @@
 			//jsonresponse = JSON.parse(response);
 			var parsed = JSON.parse(response);
 			var template = Handlebars.compile( $('#item_template').html() );
-			$('div.item_template_container').append (template(parsed));
+			$('div#item_template_container').append (template(parsed));
 			// Assuming json data is wrapped in square brackets as Drew suggests
 			//console.log(jsonresponse[0].name);
 	});

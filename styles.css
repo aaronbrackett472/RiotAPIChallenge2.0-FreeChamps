@@ -1,4 +1,4 @@
-/*last updated 8/24/15*/
+/*last updated 8/25/15*/
 /*dev notes:
 	-images/background_.1png needs to be changed
 	-images/background_.2png needs to be changed
@@ -26,18 +26,21 @@ body {
 	background-size: 300px;
 	/* background-color: #3E6B71; */
 }
-article {
-	background-color: #5B8FAD;
+main {
 	width: 50%;
 	margin-left: 25%;
-	padding: 5px;
+	background-color: #BBFF18;
+	padding: 10px;
+}
+article {
+	background-color: #5B8FAD;
+	padding: 0px;
 	margin-top: 50px;
 	background-color: rgba(0, 0, 0, .25);
 	border-radius: .2em;
 }
-	article:first-child /*changes the padding on just the first article*/ {
-		margin-top: 250px;
-		background-color: red;
+	#item_template_container {
+		margin-top: 100px; how far from the top of the page the first <article> will be
 	}
 	article:last-child {
 		margin-bottom: 50px; /*makes it so the bottom of the last article doesn't touch the bottom of the browser window*/
