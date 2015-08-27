@@ -20,7 +20,7 @@ i++
 exports.freeChamps = function(callback) {
   console.log("got here"+i + "free champs")
   i++
-
+  setTimeout(function(){ 
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
@@ -34,12 +34,13 @@ exports.freeChamps = function(callback) {
   });
   getRequest.open('GET', FREE_CHAMPS_URL);
   getRequest.send();
+},(3*1000))
 },
 
 exports.challengers = function(callback) {
   console.log("got here"+i + "challengers")
   i++
-
+  setTimeout(function(){
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
@@ -54,12 +55,13 @@ exports.challengers = function(callback) {
   });
   getRequest.open('GET', CHALLENGER_URL);
   getRequest.send();
+  },(3*1000))
 },
 
 exports.matchHistory = function(callback, summonerID, champID) {
   console.log("got here"+i + "matchhistory")
   i++
-
+  setTimeout(function(){
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
@@ -73,12 +75,13 @@ exports.matchHistory = function(callback, summonerID, champID) {
   });
   getRequest.open('GET', MH_URL_1 + summonerID + MH_URL_2 + champID + MH_URL_3);
   getRequest.send();
+},(3*1000))
 },
 
 exports.getItem = function(callback, itemID){
   console.log("got here"+i)
   i++
-
+  setTimeout(function(){
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
@@ -92,12 +95,13 @@ exports.getItem = function(callback, itemID){
   });
   getRequest.open('GET', ITEM_URL_1 + itemID + ITEM_URL_2);
   getRequest.send();
+},(3*1000))
 },
 
 exports.getChamp = function(callback, champID){
   console.log("got here"+i)
   i++
-
+  setTimeout(function(){
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
@@ -111,6 +115,7 @@ exports.getChamp = function(callback, champID){
   });
   getRequest.open('GET', CHAMP_URL_1 + champID + CHAMP_URL_2);
   getRequest.send();
+},(3*1000))
 },
 
 exports.postFatJSON = function(fatJSON) {
