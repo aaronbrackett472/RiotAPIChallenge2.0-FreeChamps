@@ -40,6 +40,7 @@ function getFatJSON(){
 					"item6_description": "",
 					"item6_image": ""
 				}
+				console.log("after champ object made")
 				for (player in playerList.entries.playerOrTeamId){
 					var sets = ChampionModel.matchHistory(function(error, matchList){
 						console.log("dsafsf")

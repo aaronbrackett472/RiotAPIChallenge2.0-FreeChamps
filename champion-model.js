@@ -43,6 +43,7 @@ exports.challengers = function(callback) {
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
+      console.log(getRequest)
       callback(getRequest.responseText);
     }
     else{
