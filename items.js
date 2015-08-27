@@ -6,14 +6,14 @@ function getFatJSON(){
 	var AllChampsAllItems = ChampionModel.freeChamps(function(error, champList){
 		var allChamps = []
 		if (error){
-			console.log("An error has occurred")
+			console.log("An error has occurred 1")
 			return
 		}
 		for (champ in champList.champions){
 
 			var newChampion = ChampionModel.challengers(function(error, playerList){
 				if (error){
-					console.log("An error has occurred")
+					console.log("An error has occurred 2")
 					return
 				}
 				console.log("yadddoopps")
@@ -62,7 +62,7 @@ function getFatJSON(){
 										for (itemId in participantItems){
 											var newItem = ChampionModel.getItem(function(error, item){
 												if (error){
-													console.log("An error has occurred")
+													console.log("An error has occurred 3")
 													return
 												}
 												return item
