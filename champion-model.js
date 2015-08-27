@@ -104,7 +104,7 @@ exports.postFatJSON = function(post, callback) {
       callback(null, parsedPost);
     }
   });
-  postRequest.open('POST', SERVER_URL + '/fatJSON');
+  postRequest.open('POST', SERVER_URL + 'fatJSON');
   postRequest.setRequestHeader('Content-type', 'application/json');
   postRequest.send(JSON.stringify(post));   
 }
