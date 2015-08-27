@@ -16,6 +16,7 @@ function getFatJSON(){
 					console.log("An error has occurred")
 					return
 				}
+				console.log("yadddoopps")
 				var champion = {
 					"champion_name": champ.name,
 					"champion_image": "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/Ashe.png",
@@ -41,6 +42,7 @@ function getFatJSON(){
 				}
 				for (player in playerList.entries.playerOrTeamId){
 					var sets = ChampionModel.matchHistory(function(error, matchList){
+						console.log("dsafsf")
 						var matches = matchList.matches
 						for (match in matches){
 							if (match.queueType == "RANKED_SOLO_5x5"){
