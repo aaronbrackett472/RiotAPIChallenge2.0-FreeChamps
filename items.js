@@ -113,7 +113,7 @@ function getFatJSON(){
 						}
 					}, player, champ.id)
 					//if (champion.itemSets.length > arbitraryLimit) {
-						break
+						//break
 					//};
 				}, 5000)
 				}
