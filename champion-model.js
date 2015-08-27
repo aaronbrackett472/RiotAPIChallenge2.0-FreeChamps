@@ -9,6 +9,7 @@ var ITEM_URL_2 = '?itemData=image&api_key=' + api_key
 var CHAMP_URL_1 = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/'
 var CHAMP_URL_2 = '?api_key=0fb0440c-84e2-41b1-8a11-2fc3ccc7a1ea'
 var STATUS_OK = 200;
+var XMLHttpRequest = require('xhr2')
 
 exports.freeChamps = function(callback) {
   var getRequest = new XMLHttpRequest();
