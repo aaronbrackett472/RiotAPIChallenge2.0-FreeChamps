@@ -37,6 +37,9 @@ exports.freeChamps = function(callback) {
 },
 
 exports.challengers = function(callback) {
+  console.log("got here"+i)
+  i++
+
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
@@ -53,6 +56,9 @@ exports.challengers = function(callback) {
 },
 
 exports.matchHistory = function(callback, summonerID, champID) {
+  console.log("got here"+i)
+  i++
+
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
@@ -69,6 +75,9 @@ exports.matchHistory = function(callback, summonerID, champID) {
 },
 
 exports.getItem = function(callback, itemID){
+  console.log("got here"+i)
+  i++
+
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
@@ -85,6 +94,9 @@ exports.getItem = function(callback, itemID){
 },
 
 exports.getChamp = function(callback, champID){
+  console.log("got here"+i)
+  i++
+
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
@@ -101,6 +113,9 @@ exports.getChamp = function(callback, champID){
 },
 
 exports.postFatJSON = function(fatJSON) {
+  console.log("got here"+i)
+  i++
+
   fs.writeFile('FatJSON.json', fatJSON)
 }
 
