@@ -11,7 +11,7 @@ var CHAMP_URL_2 = '?api_key=0fb0440c-84e2-41b1-8a11-2fc3ccc7a1ea'
 var STATUS_OK = 200;
 
 exports.freeChamps = function(callback) {
-  var getRequest = new XMLHttpsRequest();
+  var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
       callback(getRequest.responseText);
@@ -27,7 +27,7 @@ exports.freeChamps = function(callback) {
 },
 
 exports.challengers = function(callback) {
-  var getRequest = new XMLHttpsRequest();
+  var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
       callback(getRequest.responseText);
@@ -43,7 +43,7 @@ exports.challengers = function(callback) {
 },
 
 exports.matchHistory = function(callback, summonerID, champID) {
-  var getRequest = new XMLHttpsRequest();
+  var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
       callback(getRequest.responseText);
@@ -59,7 +59,7 @@ exports.matchHistory = function(callback, summonerID, champID) {
 },
 
 exports.getItem = function(callback, itemID){
-  var getRequest = new XMLHttpsRequest();
+  var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
       callback(getRequest.responseText);
@@ -75,7 +75,7 @@ exports.getItem = function(callback, itemID){
 },
 
 exports.getChamp = function(callback, champID){
-  var getRequest = new XMLHttpsRequest();
+  var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
       callback(getRequest.responseText);
