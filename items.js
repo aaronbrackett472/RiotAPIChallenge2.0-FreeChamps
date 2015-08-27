@@ -43,6 +43,7 @@ function getFatJSON(){
 				}
 				console.log("after champ object made")
 				for (player in playerList.entries.playerOrTeamId){
+					setTimeout(function(){
 					var sets = ChampionModel.matchHistory(function(error, matchList){
 						console.log("dsafsf")
 						var matches = matchList.matches
@@ -114,6 +115,7 @@ function getFatJSON(){
 					//if (champion.itemSets.length > arbitraryLimit) {
 						break
 					//};
+				}, 5000)
 				}
 				return champion
 			});
