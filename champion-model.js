@@ -13,7 +13,14 @@ var SERVER_URL = "http://52.2.103.61/"
 var XMLHttpRequest = require('xhr2')
 var fs = require('fs')
 
+var i = 0
+console.log("got here"+i)
+i++
+
 exports.freeChamps = function(callback) {
+  console.log("got here"+i)
+  i++
+
   var getRequest = new XMLHttpRequest();
   getRequest.addEventListener('load', function(event){
     if (getRequest.status != STATUS_OK){
