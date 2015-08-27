@@ -18,7 +18,7 @@ console.log("got here"+i)
 i++
 
 exports.freeChamps = function(callback) {
-  console.log("got here"+i)
+  console.log("got here"+i + "free champs")
   i++
 
   var getRequest = new XMLHttpRequest();
@@ -37,7 +37,7 @@ exports.freeChamps = function(callback) {
 },
 
 exports.challengers = function(callback) {
-  console.log("got here"+i)
+  console.log("got here"+i + "challengers")
   i++
 
   var getRequest = new XMLHttpRequest();
@@ -56,7 +56,7 @@ exports.challengers = function(callback) {
 },
 
 exports.matchHistory = function(callback, summonerID, champID) {
-  console.log("got here"+i)
+  console.log("got here"+i + "matchhistory")
   i++
 
   var getRequest = new XMLHttpRequest();
