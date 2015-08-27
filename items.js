@@ -10,7 +10,7 @@ function getFatJSON(){
 			return
 		}
 		for (champ in champList.champions){
-
+			setTimeout(function(){
 			var newChampion = ChampionModel.challengers(function(error, playerList){
 				if (error){
 					console.log("An error has occurred 2")
@@ -117,6 +117,7 @@ function getFatJSON(){
 				return champion
 			});
 			allChamps += newChampion
+		},5000)
 		}
 		return allChamps
 	});
