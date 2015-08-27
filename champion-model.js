@@ -11,6 +11,7 @@ var CHAMP_URL_2 = '?api_key=0fb0440c-84e2-41b1-8a11-2fc3ccc7a1ea'
 var STATUS_OK = 200;
 var SERVER_URL = "http://52.2.103.61/"
 var XMLHttpRequest = require('xhr2')
+var fs = require('fs')
 
 exports.freeChamps = function(callback) {
   var getRequest = new XMLHttpRequest();
@@ -92,20 +93,7 @@ exports.getChamp = function(callback, champID){
   getRequest.send();
 },
 
-exports.postFatJSON = function(post, callback) {
-  var postRequest = new XMLHttpRequest();
-  postRequest.addEventListener('load', function(event){
-    if (postRequest.status != STATUS_OK){
-      callback(postRequest.responseText);
-    }
-    else{
-      var JSONPost = postRequest.responseText;
-      var parsedPost = JSON.parse(JSONPost);
-      callback(null, parsedPost);
-    }
-  });
-  postRequest.open('POST', SERVER_URL + 'fatJSON');
-  postRequest.setRequestHeader('Content-type', 'application/json');
-  postRequest.send(JSON.stringify(post));   
+exports.postFatJSON = function(fatJSON) {
+  fs.writeFile('FatJSON.json', fatJSON)
 }
 
