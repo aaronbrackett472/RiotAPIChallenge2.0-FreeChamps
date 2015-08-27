@@ -117,7 +117,7 @@ function getFatJSON(){
 		}
 		return allChamps
 	});
-	ChampionModel.postFatJSON(AllChampsAllItems, function{
+	ChampionModel.postFatJSON(AllChampsAllItems, function(){
 		return
 	})
 }
