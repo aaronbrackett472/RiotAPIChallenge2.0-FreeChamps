@@ -9,6 +9,7 @@ function getFatJSON(){
 			console.log("An error has occurred 1")
 			return
 		}
+		console.log(champList.champions.length + " number of free champions")
 		for (champ in champList.champions){
 			setTimeout(function(){
 			var newChampion = ChampionModel.challengers(function(error, playerList){
