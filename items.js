@@ -1,3 +1,5 @@
+var ChampionModel = require("./champion-model.js")
+
 function getFatJSON(){	
 	var arbitraryLimit = 10
 
@@ -115,7 +117,9 @@ function getFatJSON(){
 		}
 		return allChamps
 	});
-	return AllChampsAllItems
+	ChampionModel.postFatJSON(AllChampsAllItems, function{
+		return
+	})
 }
 
 getFatJSON()
