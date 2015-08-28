@@ -5,8 +5,7 @@ var MH_URL_1 = 'https://na.api.pvp.net/api/lol/na/v2.2/matchhistory/'
 var MH_URL_2 = '&api_key=' + api_key //should these lines have semi-colons? -tcj
 var ITEM_URL_1 = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/item/'
 var ITEM_URL_2 = '?itemData=image&api_key=' + api_key
-var CHAMP_URL_1 = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/'
-var CHAMP_URL_2 = '?api_key=0fb0440c-84e2-41b1-8a11-2fc3ccc7a1ea'
+var CHAMP_URL = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/'
 var VERSION_URL = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/versions?api_key=' + api_key
 var STATUS_OK = 200;
 var XMLHttpRequest = require('xhr2')
@@ -89,7 +88,7 @@ exports.getChamp = function(callback, champID){
       return callback(null, parsedPosts);
     }
   });
-  getRequest.open('GET', CHAMP_URL_1 + champID + CHAMP_URL_2);
+  getRequest.open('GET', CHAMP_URL + champID);
   getRequest.send();
 },
 
