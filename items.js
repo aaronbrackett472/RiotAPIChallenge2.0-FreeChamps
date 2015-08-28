@@ -149,7 +149,7 @@ var freeChamps = ChampionModel.freeChamps(function(error, champs){
 		console.log("Error: " + error)
 		return
 	}
-	for (champ in champs){
+	for (champ in champs.champions){
 		var newChamp = ChampionModel.getChamp(function(error, champion){
 			if (error){
 				console.log("Failed at getting a specific champion\n")
