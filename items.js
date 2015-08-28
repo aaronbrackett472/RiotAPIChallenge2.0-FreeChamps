@@ -1,132 +1,161 @@
 var ChampionModel = require("./champion-model.js")
 
-function getFatJSON(){	
-	var arbitraryLimit = 10
-
-	var AllChampsAllItems = ChampionModel.freeChamps(function(error, champList){
-		var allChamps = []
+function getFatJSON(champs, champItems){
+	var challengers = ChampionModel.challengers(function(error, challengers, champs, champItems){
 		if (error){
-			console.log("An error has occurred 1")
+			console.log("Failed to get challengers\n")
+			console.log("Error: " + error)
 			return
 		}
-		console.log(champList.champions.length + " number of free champions")
-		for (champ in champList.champions){
-			setTimeout(function(){
-			var newChampion = ChampionModel.challengers(function(error, playerList){
-				if (error){
-					console.log("An error has occurred 2")
-					return
-				}
-				console.log("yadddoopps")
-				var champion = {
-					"champion_name": champ.name,
-					"champion_image": "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/Ashe.png",
-					"champion_description": champ.title,
-					"item1": "",
-					"item1_description": "",
-					"item1_image": "",
-					"item2": "",
-					"item2_description": "",
-					"item2_image": "",
-					"item3": "",
-					"item3_description": "",
-					"item3_image": "",
-					"item4": "",
-					"item4_description": "",
-					"item4_image": "",
-					"item5": "",
-					"item5_description": "",
-					"item5_image": "",
-					"item6": "",
-					"item6_description": "",
-					"item6_image": ""
-				}
-				console.log("after champ object made")
-				for (player in playerList.entries.playerOrTeamId){
-					setTimeout(function(){
-					var sets = ChampionModel.matchHistory(function(error, matchList){
-						console.log("dsafsf")
-						var matches = matchList.matches
-						for (match in matches){
-							if (match.queueType == "RANKED_SOLO_5x5"){
-								var participants  = match.participants
-								for (participant in participants){
-									if (participant.championId == champ.champId){
-										var participantItems = [
-											participant.stats.item0,
-											participant.stats.item1,
-											participant.stats.item2,
-											participant.stats.item3,
-											participant.stats.item4,
-											participant.stats.item5,
-											participant.stats.item6
-										]
-										var itemSlot = 1;
-										for (itemId in participantItems){
-											var newItem = ChampionModel.getItem(function(error, item){
-												if (error){
-													console.log("An error has occurred 3")
-													return
-												}
-												return item
-											}, itemId)
-											switch (itemSlot){
-												case 1:
-													champion.item1 = newItem.name
-													champion.item1_description = newItem.description
-													champion.item1_image = ""//put datadragon url here
-													break
-												case 2:
-													champion.item2 = newItem.name
-													champion.item2_description = newItem.description
-													champion.item2_image = ""//put datadragon url here
-													break
-												case 3:
-													champion.item3 = newItem.name
-													champion.item3_description = newItem.description
-													champion.item3_image = ""//put datadragon url here
-													break
-												case 4:
-													//trinket
-													break
-												case 5:
-													champion.item4 = newItem.name
-													champion.item4_description = newItem.description
-													champion.item4_image = ""//put datadragon url here
-													break
-												case 6:
-													champion.item5 = newItem.name
-													champion.item5_description = newItem.description
-													champion.item5_image = ""//put datadragon url here
-													break
-												case 7:
-													champion.item6 = newItem.name
-													champion.item6_description = newItem.description
-													champion.item6_image = ""//put datadragon url here
-													break
-											}
-										}
-										break
+		for (challenger in challengers){
+			setTimeout(function(challenger, champs, champItems){
+				ChampionModel.matchHistory(function(error, history, champs, champItems){
+					if (error){
+						console.log("Failed to get free champs\n")
+						console.log("Error: " + error)
+						return
+					}
+					var matches = history.matches
+					for (match in matches){
+						players = match.participants
+						for (player in players){
+							for (champ in champs){
+								if (player.championId == champ.id){
+									var newChampItem = {
+										champion_name: champ.name,
+										champion_image: "http://ddragon.leagueoflegends.com/cdn/" + versionNumber + "/img/champion/" + champ.name + ".png",//could be champ.key
+										champion_description: champ.title,
+										item1: "",
+										item1_description: "",
+										item1_image: "",
+										item2: "",
+										item2_description: "",
+										item2_image: "",
+										item3: "",
+										item3_description: "",
+										item3_image: "",
+										item4: "",
+										item4_description: "",
+										item4_image: "",
+										item5: "",
+										item5_description: "",
+										item5_image: "",
+										item6: "",
+										item6_description: "",
+										item6_image: ""
 									}
+									if (player.stats.item0){
+										var item1 = ChampionModel.getItem(function(error, item){
+											if (error){
+												console.log("Failed to get item\n")
+												console.log("Error: " + error)
+												return
+											}
+											return item
+										}, player.stats.item0)
+										newChampItem.item1 = item1.name
+										newChampItem.item1_description = item1.description
+										newChampItem.item1_image = "http://ddragon.leagueoflegends.com/cdn/" + versionNumber + "img/item/" + item1.id + ".png"
+									}
+									if (player.stats.item1){
+										var item2 = ChampionModel.getItem(function(error, item){
+											if (error){
+												console.log("Failed to get item\n")
+												console.log("Error: " + error)
+												return
+											}
+											return item
+										}, player.stats.item1)
+										newChampItem.item2 = item2.name
+										newChampItem.item2_description = item2.description
+										newChampItem.item2_image = "http://ddragon.leagueoflegends.com/cdn/" + versionNumber + "img/item/" + item2.id + ".png"
+									}
+									if (player.stats.item2){
+										var item3 = ChampionModel.getItem(function(error, item){
+											if (error){
+												console.log("Failed to get item\n")
+												console.log("Error: " + error)
+												return
+											}
+											return item
+										}, player.stats.item3)
+										newChampItem.item3 = item3.name
+										newChampItem.item3_description = item3.description
+										newChampItem.item3_image = "http://ddragon.leagueoflegends.com/cdn/" + versionNumber + "img/item/" + item3.id + ".png"
+									}
+									if (player.stats.item4){
+										var item4 = ChampionModel.getItem(function(error, item){
+											if (error){
+												console.log("Failed to get item\n")
+												console.log("Error: " + error)
+												return
+											}
+											return item
+										}, player.stats.item4)
+										newChampItem.item4 = item4.name
+										newChampItem.item4_description = item4.description
+										newChampItem.item4_image = "http://ddragon.leagueoflegends.com/cdn/" + versionNumber + "img/item/" + item4.id + ".png"
+									}
+									if (player.stats.item5){
+										var item5 = ChampionModel.getItem(function(error, item){
+											if (error){
+												console.log("Failed to get item\n")
+												console.log("Error: " + error)
+												return
+											}
+											return item
+										}, player.stats.item5)
+										newChampItem.item5 = item5.name
+										newChampItem.item5_description = item5.description
+										newChampItem.item5_image = "http://ddragon.leagueoflegends.com/cdn/" + versionNumber + "img/item/" + item5.id + ".png"
+									}
+									if (player.stats.item6){
+										var item6 = ChampionModel.getItem(function(error, item){
+											if (error){
+												console.log("Failed to get item\n")
+												console.log("Error: " + error)
+												return
+											}
+											return item
+										}, player.stats.item6)
+										newChampItem.item6 = item6.name
+										newChampItem.item6_description = item6.description
+										newChampItem.item6_image = "http://ddragon.leagueoflegends.com/cdn/" + versionNumber + "img/item/" + item6.id + ".png"
+									}
+									champItems += newChampItem
 								}
 							}
 						}
-					}, player, champ.id)
-					//if (champion.itemSets.length > arbitraryLimit) {
-						//break
-					//};
-				}, 5000)
-				}
-				return champion
-			});
-			allChamps += newChampion
-		},5000)
+					}
+				}, challenger.id)
+			},10000)
 		}
-		return allChamps
-	});
-	ChampionModel.postFatJSON(AllChampsAllItems, function(){
-		return
 	})
+	return champItems
 }
 
-getFatJSON()
+var freeChamps = ChampionModel.freeChamps(function(error, champs){
+	var completeChamps =[]
+	if (error){
+		console.log("Failed to get free champs\n")
+		console.log("Error: " + error)
+		return
+	}
+	for (champ in champs){
+		var newChamp = ChampionModel.getChamp(function(error, champion){
+			if (error){
+				console.log("Failed at getting a specific champion\n")
+				console.log("Error: " + error)
+				return
+			}
+			return champion
+		}, champ.id)
+		completeChamps += newChamp
+	}
+	return completeChamps
+})
+var champItems = []
+var FatJSON = getFatJSON(completeChamps, champItems)
+ChampionModel.postFatJSON(AllChampsAllItems, function(){
+	return
+})
