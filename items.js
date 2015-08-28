@@ -1,4 +1,12 @@
 var ChampionModel = require("./champion-model.js")
+var versionNumber = ChampionModel.version(function(error, versions){
+	if (error){
+		console.log("Error getting version\n")
+		console.log("Error: " + error)
+		return
+	}
+	return versions[0]
+})
 
 function getFatJSON(champs, champItems){
 	var challengers = ChampionModel.challengers(function(error, challengers, champs, champItems){
