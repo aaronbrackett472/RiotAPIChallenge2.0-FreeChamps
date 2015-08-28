@@ -149,6 +149,7 @@ var freeChamps = ChampionModel.freeChamps(function(error, champs){
 		console.log("Error: " + error)
 		return
 	}
+	console.log("Free Champs: " + champs.champions)
 	for (champ in champs.champions){
 		console.log("Champ ID: " + champ.id)
 		var newChamp = ChampionModel.getChamp(function(error, champion){
