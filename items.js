@@ -163,7 +163,7 @@ var freeChamps = ChampionModel.freeChamps(function(error, champs){
 	return completeChamps
 })
 var champItems = []
-var FatJSON = getFatJSON(completeChamps, champItems)
+var FatJSON = getFatJSON(freeChamps, champItems)
 ChampionModel.postFatJSON(AllChampsAllItems, function(){
 	return
 })
