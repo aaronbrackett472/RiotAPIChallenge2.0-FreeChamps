@@ -4,8 +4,6 @@
 */
 
 (function() {
-	var SERVER_URL = "http://52.2.103.61/"
-
 	function loadJSON(callback) {
 		var xobj = new XMLHttpRequest();
 		xobj.overrideMimeType("application/json");
