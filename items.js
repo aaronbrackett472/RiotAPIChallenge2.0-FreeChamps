@@ -139,7 +139,7 @@ function getFatJSON(champs, champItems){
 				}, challenger.playerOrTeamId)
 			},10000)
 		}
-	})
+	},champs, champItems)
 	return champItems
 }
 

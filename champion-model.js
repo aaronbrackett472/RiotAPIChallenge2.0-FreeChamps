@@ -28,9 +28,9 @@ exports.freeChamps = function(callback) {
   getRequest.send();
 },
 
-exports.challengers = function(callback) {
+exports.challengers = function(callback,champs, champItems) {
   var getRequest = new XMLHttpRequest();
-  getRequest.addEventListener('load', function(event){
+  getRequest.addEventListener('load', function(event, champs, champItems){
     if (getRequest.status != STATUS_OK){
       console.log(getRequest)
       callback(getRequest.responseText);
@@ -38,7 +38,7 @@ exports.challengers = function(callback) {
     else{
       var JSONPosts = getRequest.responseText;
       var parsedPosts = JSON.parse(JSONPosts);
-      return callback(null, parsedPosts);
+      return callback(null, parsedPosts, champs, champItems);
     }
   });
   getRequest.open('GET', CHALLENGER_URL);
