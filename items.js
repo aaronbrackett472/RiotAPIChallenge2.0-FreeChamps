@@ -153,8 +153,9 @@ var freeChamps = ChampionModel.freeChamps(function(error, champs){
 	console.log("Champ id from indexing in: " + champs.champions[0].id)
 	console.log("Another property: " + champs.champions[0].botEnabled)
 	var allFreeChamps = champs.champions
-	for (champ in allFreeChamps){
-		console.log("Champ ID: " + champ.id)
+	for (var i = 0; i < allFreeChamps.length; i++){
+		var champID = allFreeChamps[i].id
+		console.log("Champ ID: " + champID)
 		var newChamp = ChampionModel.getChamp(function(error, champion){
 			if (error){
 				console.log("Failed at getting a specific champion\n")
@@ -162,7 +163,7 @@ var freeChamps = ChampionModel.freeChamps(function(error, champs){
 				return
 			}
 			return champion
-		}, champ.id)
+		}, champID)
 		completeChamps += newChamp
 	}
 	return completeChamps
