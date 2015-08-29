@@ -19,8 +19,7 @@ function getFatJSON(champs, champItems){
 		console.log("Challenger entries: " + challengers.entries)
 		console.log("Challenger outside of loop: " + challengers.entries[0].playerOrTeamId)
 		for (var i = 0; i < challengers.entries.length; i++){
-			var challenger = challengers.entries[i]
-			console.log ("Challenger: " + challenger.playerOrTeamId)
+			var challenger = challengers.entries[i].playerOrTeamId
 			setTimeout(function(challenger, champs, champItems){
 				ChampionModel.matchHistory(function(error, history, champs, champItems){
 					if (error){
@@ -140,7 +139,7 @@ function getFatJSON(champs, champItems){
 							}
 						}
 					}
-				}, challenger.playerOrTeamId)
+				}, challenger)
 			},10000)
 		}
 	},champs, champItems)
