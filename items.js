@@ -16,6 +16,7 @@ function getFatJSON(champs, champItems){
 			return
 		}
 		console.log("Challgers response object: " + challengers)
+		console.log("Challenger entries: " + challengers.entries)
 		console.log("Challenger outside of loop: " + challengers.entries[0].id)
 		for (var i = 0; i < challengers.entries.length; i++){
 			var challenger = challengers.entries[0]
