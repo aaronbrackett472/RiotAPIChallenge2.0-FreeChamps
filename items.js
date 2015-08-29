@@ -150,6 +150,8 @@ var freeChamps = ChampionModel.freeChamps(function(error, champs){
 		return
 	}
 	console.log("Free Champs: " + champs.champions)
+	console.log("Champ id from indexing in: " + champs.champions[0].id)
+	console.log("Another property: " + champs.champions[0].botEnabled)
 	for (champ in champs.champions){
 		console.log("Champ ID: " + champ.id)
 		var newChamp = ChampionModel.getChamp(function(error, champion){
