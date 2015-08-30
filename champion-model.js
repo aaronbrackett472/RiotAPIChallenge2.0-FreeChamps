@@ -2,7 +2,7 @@ var api_key = 'b9f2effe-c90e-4633-b36b-5716684ccbac' //should these lines have s
 var FREE_CHAMPS_URL= 'https://na.api.pvp.net/api/lol/na/v1.2/champion?freeToPlay=true&api_key=' + api_key //should these lines have semi-colons? -tcj
 var CHALLENGER_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league/challenger?type=RANKED_SOLO_5x5&api_key=' + api_key //should these lines have semi-colons? -tcj
 var MH_URL_1 = 'https://na.api.pvp.net/api/lol/na/v2.2/matchhistory/'
-var MH_URL_2 = '&api_key=' + api_key //should these lines have semi-colons? -tcj
+var MH_URL_2 = '?api_key=' + api_key //should these lines have semi-colons? -tcj
 var ITEM_URL_1 = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/item/'
 var ITEM_URL_2 = '?itemData=image&api_key=' + api_key
 var CHAMP_URL_1 = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/'
