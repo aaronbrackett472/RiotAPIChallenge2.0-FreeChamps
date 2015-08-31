@@ -140,7 +140,7 @@ function getFatJSON(champs, champItems){
 						}
 					}
 				}, challenger)
-			},100000)
+			},1000000)
 		}
 	},champs, champItems)
 	return champItems
